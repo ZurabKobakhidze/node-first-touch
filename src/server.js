@@ -1,9 +1,10 @@
-import fs from "fs";
+import http from "http";
+import url from "url";
 
-const info = fs.readFileSync("./src/about.txt", { encoding: "utf-8" });
+const app = http.createServer((req, res) => {
 
-console.log(info);
+  console.log(url);
+  res.end("sercer is alive!");
+});
 
-fs.writeFileSync("./src/about.txt" , "text updated!")
-
-console.log(info);
+app.listen(3000);
