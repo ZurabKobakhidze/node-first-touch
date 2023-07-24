@@ -1,10 +1,13 @@
-import http from "http";
-import url from "url";
+import express from "express";
 
-const app = http.createServer((req, res) => {
+const app = express();
 
-  console.log(url);
-  res.end("sercer is alive!");
+app.use("/home" , (_, res) => {
+    res.json({ message: "Home Page" });
+  });
+
+app.use("/", (_, res) => {
+  res.json({ message: "server works!" });
 });
 
 app.listen(3000);
